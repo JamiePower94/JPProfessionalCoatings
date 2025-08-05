@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>J.P Professional Coatings</title>
+  <style>
+    /* Reset margins and paddings */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #243b53;
+      background-color: #f9fafb;
+    }
+
+    /* Header styles */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      z-index: 999;
+    }
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      height: 50px;
+      width: auto;
+      margin-right: 0.5rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #243b53;
+      font-weight: 600;
+      transition: color 0.2s ease-in-out;
+    }
+    nav a:hover {
+      color: #007acc;
+    }
+    .call-header {
+      display: flex;
+      align-items: center;
+    }
+    .call-header button {
+      background-color: #007acc;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-left: 0.5rem;
+      transition: background 0.3s ease-in-out;
+    }
+    .call-header button:hover {
+      background-color: #005fa3;
+    }
+
+    /* Hero section */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('Home Page.webp') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #ffffff;
+      padding-top: 4rem;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .hero-buttons .btn {
+      background-color: #007acc;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background 0.3s ease-in-out;
+    }
+    .hero-buttons .btn:hover {
+      background-color: #005fa3;
+    }
+
+    /* Section styles */
+    section {
+      padding: 4rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #243b53;
+    }
+
+    /* Trust section */
+    .trust-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .trust-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+    }
+    .trust-item:hover {
+      transform: translateY(-4px);
+    }
+    .trust-item span {
+      font-size: 2.5rem;
+      color: #007acc;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .trust-item h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #243b53;
+    }
+    .trust-item p {
+      font-size: 0.95rem;
+      color: #4a5568;
+    }
+
+    /* Services section */
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+    }
+    .service-item:hover {
+      transform: translateY(-4px);
+    }
+    .service-item span {
+      font-size: 2.5rem;
+      color: #007acc;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .service-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #243b53;
+    }
+    .service-item p {
+      font-size: 0.9rem;
+      color: #4a5568;
+    }
+
+    /* Portfolio section */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .portfolio-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+    }
+    .portfolio-item:hover {
+      transform: translateY(-4px);
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .portfolio-item p {
+      padding: 1rem;
+      font-size: 1rem;
+      color: #243b53;
+      text-align: center;
+    }
+
+    /* Testimonial section */
+    .testimonial-container {
+      background: #edf2f7;
+      border-radius: 8px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    .stars {
+      color: #f6ad55;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .testimonial-text {
+      font-size: 1rem;
+      color: #4a5568;
+      max-width: 600px;
+      margin-bottom: 1rem;
+    }
+    .testimonial-author {
+      font-weight: bold;
+      color: #243b53;
+    }
+
+    /* Contact section */
+    .contact-container {
+      text-align: center;
+    }
+    .contact-container p {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      color: #4a5568;
+    }
+    .contact-container strong {
+      color: #243b53;
+    }
+    .contact-container .contact-button {
+      margin-top: 1rem;
+      background-color: #007acc;
+      color: #fff;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+    }
+    .contact-container .contact-button:hover {
+      background-color: #005fa3;
+    }
+
+    /* Footer */
+    footer {
+      background: #243b53;
+      color: #ffffff;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+    footer p {
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive typography */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 500px) {
+      nav ul {
+        gap: 0.75rem;
+      }
+      .trust-item h3,
+      .service-item h3 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="FB_IMG_1753745150574.jpg" alt="J.P Professional Coatings logo">
+        <h1 style="font-size:1.25rem;color:#243b53;">J.P Professional Coatings</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#trust">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="call-header">
+        <button onclick="window.location.href='tel:2503157585'">Call Now</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Transform Your Space with J.P Professional Coatings</h1>
+      <p>Where quality meets affordability.</p>
+      <div class="hero-buttons">
+        <button class="btn" onclick="window.location.href='tel:2503157585'">Call Now</button>
+        <button class="btn" onclick="window.location.href='#contact'">Get a Free Quote</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Section -->
+  <section id="trust">
+    <h2>Why Homeowners Trust J.P Professional Coatings</h2>
+    <div class="trust-container">
+      <div class="trust-item">
+        <span>🏠</span>
+        <h3>15+ Homes Transformed</h3>
+        <p>We bring new life to your home with our expert painting services.</p>
+      </div>
+      <div class="trust-item">
+        <span>💲</span>
+        <h3>Affordable &amp; Honest Pricing</h3>
+        <p>We offer competitive rates with no hidden fees.</p>
+      </div>
+      <div class="trust-item">
+        <span>🛡️</span>
+        <h3>Insured &amp; Professional</h3>
+        <p>Our team is fully insured and committed to quality workmanship.</p>
+      </div>
+      <div class="trust-item">
+        <span>📞</span>
+        <h3>Local &amp; Easy to Reach</h3>
+        <p>We're based in the Okanagan and ready to serve you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services-container">
+      <div class="service-item">
+        <span>🎨</span>
+        <h3>Interior Painting</h3>
+        <p>Refresh your interiors with our expert painting service.</p>
+      </div>
+      <div class="service-item">
+        <span>🏡</span>
+        <h3>Exterior Painting</h3>
+        <p>Protect and beautify your home's exterior.</p>
+      </div>
+      <div class="service-item">
+        <span>🛠️</span>
+        <h3>Drywall Repair</h3>
+        <p>We repair and finish drywall to perfection.</p>
+      </div>
+      <div class="service-item">
+        <span>🏢</span>
+        <h3>Commercial Painting</h3>
+        <p>Professional painting for businesses and offices.</p>
+      </div>
+      <div class="service-item">
+        <span>🪵</span>
+        <h3>Deck &amp; Fence Staining</h3>
+        <p>Stain and protect your outdoor wood structures.</p>
+      </div>
+      <div class="service-item">
+        <span>🚪</span>
+        <h3>Entryway Repainting</h3>
+        <p>Make a great first impression with a refreshed entryway.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="Website.webp" alt="Entryway repainting project">
+        <p>Entryway repainting project.</p>
+      </div>
+      <div class="portfolio-item">
+        <img src="Website 1.webp" alt="Exterior painting of a home">
+        <p>Exterior painting of a home.</p>
+      </div>
+      <div class="portfolio-item">
+        <img src="Website 2.webp" alt="Deck &amp; fence staining project">
+        <p>Deck &amp; fence staining project.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial Section -->
+  <section id="reviews">
+    <h2>Customer Reviews</h2>
+    <div class="testimonial-container">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="testimonial-text">“J.P Professional Coatings did a fantastic job on our home. They were punctual, professional and the finished product was flawless. We highly recommend them!”</p>
+      <p class="testimonial-author">Sarah, Kelowna</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Get a Free Quote</h2>
+    <div class="contact-container">
+      <p><strong>Phone:</strong> 250-315-7585 (Alt: 250-315-7543)</p>
+      <p><strong>Service Area:</strong> Okanagan Region, BC</p>
+      <button class="contact-button" onclick="window.location.href='tel:2503157585'">Call Now</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 J.P Professional Coatings. All Rights Reserved.</p>
+    <p>Transform your space with J.P Professional Coatings. Where quality meets affordability.</p>
+  </footer>
+
+</body>
+</html>
