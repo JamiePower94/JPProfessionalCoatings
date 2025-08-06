@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>J.P Professional Coatings</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    :root {
+      --primary-blue: #175481;
+      --accent-blue: #0f3551;
+      --light-bg: #f7f9fa;
+      --dark-text: #222;
+      --section-spacing: 48px;
+    }
+    body { margin: 0; font-family: 'Montserrat', Arial, sans-serif; background: var(--light-bg); color: var(--dark-text); }
+    .navbar { background: var(--primary-blue); color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 80px; position: sticky; top: 0; z-index: 100;}
+    .logo img { height: 58px; border-radius: 16px; background: #fff;}
+    .nav-links { display: flex; gap: 36px;}
+    .nav-links a { color: #fff; text-decoration: none; font-size: 1.2rem; font-weight: 500; transition: color 0.2s; padding: 6px 10px; border-radius: 4px;}
+    .nav-links a:hover, .nav-links a.active { background: #fff2; }
+    .hero { position: relative; background: url('website photo 1.jpg') center/cover no-repeat; min-height: 340px; display: flex; align-items: flex-end; padding: 0 48px 48px 48px;}
+    .hero-content { background: rgba(255,255,255,0.92); padding: 36px 40px 28px 36px; border-radius: 16px; max-width: 540px; box-shadow: 0 2px 8px rgba(0,0,0,0.09);}
+    .hero-content h1 { font-size: 2.5rem; font-weight: 700; color: var(--primary-blue); margin: 0 0 12px 0; line-height: 1.18;}
+    .hero-content .phone { font-size: 1.6rem; font-weight: 700; color: var(--primary-blue); float: right; margin-left: 24px; margin-top: -28px;}
+    .hero-content p { font-size: 1.1rem; color: var(--accent-blue); margin: 24px 0 0 0;}
+    .service-cards { display: flex; justify-content: center; gap: 48px; margin-top: -62px; margin-bottom: var(--section-spacing);}
+    .service-card { background: #fff; box-shadow: 0 2px 16px rgba(20,50,80,0.07); border-radius: 12px; overflow: hidden; width: 300px; text-align: center; transition: transform 0.18s;}
+    .service-card img { width: 100%; height: 146px; object-fit: cover;}
+    .service-card-title { font-size: 1.6rem; font-weight: 700; color: var(--primary-blue); margin: 18px 0 0 0;}
+    .service-card-link { display: inline-block; margin: 16px 0 20px 0; color: var(--accent-blue); text-decoration: none; font-weight: 500; font-size: 1.1rem; letter-spacing: 0.02em; transition: color 0.2s;}
+    .service-card-link:hover { color: #008aff;}
+    .service-card:hover { transform: translateY(-6px) scale(1.03);}
+    .about-section { background: #fff; border-radius: 18px; max-width: 980px; margin: 0 auto var(--section-spacing) auto; padding: 48px 40px 48px 40px; box-shadow: 0 2px 16px rgba(20,50,80,0.05);}
+    .about-section h2 { font-size: 2.2rem; font-weight: 700; color: var(--dark-text); margin-bottom: 12px;}
+    .about-section .tagline { font-size: 1.18rem; color: var(--primary-blue); margin-bottom: 18px; line-height: 1.4;}
+    .about-section .info-row { display: flex; justify-content: space-between; gap: 36px; flex-wrap: wrap;}
+    .about-section .info-left, .about-section .info-right { flex: 1; min-width: 240px; font-size: 1.13rem;}
+    .about-section ul { padding-left: 20px; margin: 0;}
+    .about-section li { margin-bottom: 7px;}
+    .about-section .contact-list { margin: 14px 0; font-size: 1.18rem;}
+    .about-section .contact-list strong { color: var(--primary-blue); font-weight: 700;}
+    .fb-float { position: fixed; right: 38px; bottom: 38px; z-index: 200;}
+    .fb-float a { display: flex; align-items: center; justify-content: center; background: #1877f3; border-radius: 50%; width: 54px; height: 54px; box-shadow: 0 2px 12px rgba(24,119,242,0.21); color: #fff; font-size: 2.2rem; text-decoration: none; transition: background 0.2s;}
+    .fb-float a:hover { background: #1155a4;}
+
+    /* Tablet Styles */
+    @media (max-width: 880px) {
+      .service-cards { flex-direction: column; align-items: center; gap: 28px;}
+      .about-section .info-row { flex-direction: column;}
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 8px;
+        height: auto;
+      }
+      .logo img {
+        height: 40px;
+        margin-bottom: 8px;
+      }
+      .nav-links {
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+        align-items: flex-start;
+        margin-top: 6px;
+      }
+      .nav-links a {
+        font-size: 1rem;
+        padding: 8px 12px;
+        width: 100%;
+        display: block;
+      }
+      .hero {
+        padding: 0 6px 28px 6px;
+        min-height: 180px;
+        align-items: flex-end;
+        background-position: center top;
+      }
+      .hero-content {
+        padding: 18px 12px 16px 12px;
+        border-radius: 10px;
+        max-width: 98vw;
+      }
+      .hero-content h1 {
+        font-size: 1.3rem;
+        line-height: 1.18;
+      }
+      .hero-content .phone {
+        font-size: 1rem;
+        float: none;
+        margin-left: 0;
+        margin-top: 0;
+        display: block;
+        text-align: right;
+        margin-bottom: 4px;
+      }
+      .hero-content p {
+        font-size: 0.97rem;
+        margin: 16px 0 0 0;
+      }
+      .service-cards {
+        gap: 12px;
+        margin-top: 8px;
+        margin-bottom: 28px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .service-card {
+        width: 100%;
+        min-width: 0;
+        padding: 0;
+      }
+      .service-card img {
+        height: 100px;
+      }
+      .service-card-title {
+        font-size: 1.1rem;
+        margin: 12px 0 0 0;
+      }
+      .service-card-link {
+        margin: 10px 0 14px 0;
+        font-size: 1rem;
+      }
+      .about-section {
+        padding: 18px 7px 22px 7px;
+        border-radius: 10px;
+      }
+      .about-section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 7px;
+      }
+      .about-section .tagline {
+        font-size: 0.98rem;
+        margin-bottom: 8px;
+      }
+      .about-section .info-left,
+      .about-section .info-right {
+        font-size: 0.97rem;
+        min-width: 0;
+      }
+      .about-section .contact-list {
+        font-size: 1rem;
+      }
+      .fb-float {
+        right: 16px;
+        bottom: 16px;
+      }
+      .fb-float a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="website logo.jpg" alt="JP Professional Coatings Logo"></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+  <section class="hero">
+    <div class="hero-content">
+      <span class="phone">(250) 315-7585</span>
+      <h1>
+        Transform your<br>
+        space with J P<br>
+        Professional Coatings
+      </h1>
+      <p>Where quality meets affordability.</p>
+    </div>
+  </section>
+  <section class="service-cards">
+    <div class="service-card">
+      <img src="website photo 2.jpg" alt="Interior Painting">
+      <div class="service-card-title">Interior</div>
+      <a href="#" class="service-card-link">VIEW MORE &rarr;</a>
+    </div>
+    <div class="service-card">
+      <img src="website photo 3.jpg" alt="Exterior Painting">
+      <div class="service-card-title">Exterior</div>
+      <a href="#" class="service-card-link">VIEW MORE &rarr;</a>
+    </div>
+  </section>
+  <section class="about-section">
+    <h2>J.P Professional Coatings</h2>
+    <div class="tagline">
+      Transform your space with J P Professional Coatings.<br>
+      Where quality meets affordability.
+    </div>
+    <div class="info-row">
+      <div class="info-left">
+        <div class="contact-list">
+          <strong>(250)-315-7585</strong><br>
+          Jamie9694@gmail.com
+        </div>
+        <ul>
+          <li>Interior</li>
+          <li>Exterior</li>
+          <li>Staining</li>
+          <li>Epoxy</li>
+        </ul>
+      </div>
+      <div class="info-right">
+        <ul>
+          <li>Stucco repairs</li>
+          <li>Exterior cleaning</li>
+          <li>Driveway sealing</li>
+          <li>Free estimates</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <div class="fb-float">
+    <a href="https://www.facebook.com/profile.php?id=100090187165666" target="_blank" rel="noopener" aria-label="Facebook Page">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  </div>
+</body>
+</html>
