@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | J.P Professional Coatings</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"/>
+  <style>
+    :root {
+      --primary-blue: #175481;
+      --accent-blue: #0f3551;
+      --light-bg: #f7f9fa;
+      --dark-text: #222;
+      --section-spacing: 48px;
+    }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--light-bg);
+      color: var(--dark-text);
+    }
+    .navbar {
+      background: linear-gradient(135deg, #1c5e90, #175481);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      height: 80px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      box-shadow: 0 4px 24px rgba(23,84,129,0.15);
+    }
+    .logo img {
+      height: 58px;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(255,255,255,0.2);
+    }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding: 8px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      transition: background 0.3s, color 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: linear-gradient(90deg, #1c5e90 60%, #43a6ff 100%);
+      color: #fff;
+      box-shadow: 0 3px 14px rgba(23, 84, 129, 0.12);
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 3px;
+      background: linear-gradient(90deg,#fff 0%,#a5e2ff 100%);
+      transition: width 0.4s;
+      width: 0;
+    }
+    .nav-links a.active::after,
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .contact-main {
+      background: linear-gradient(115deg,#f9fcff 75%,#dce9f2 100%);
+      border-radius: 22px;
+      max-width: 540px;
+      margin: 48px auto 0 auto;
+      padding: 48px 40px 38px 40px;
+      box-shadow: 0 8px 32px rgba(23, 84, 129, 0.12);
+      text-align: center;
+      animation: fadeIn 0.7s;
+    }
+    .contact-main h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin-bottom: 18px;
+      text-shadow: 0 2px 10px #b2cbe950;
+      letter-spacing: -0.5px;
+    }
+    .contact-info {
+      font-size: 1.18rem;
+      margin-bottom: 18px;
+      color: var(--accent-blue);
+    }
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 14px 0;
+      font-size: 1.13rem;
+      text-align: left;
+      display: inline-block;
+    }
+    .contact-list li {
+      margin-bottom: 12px;
+    }
+    .contact-list strong {
+      color: var(--primary-blue);
+      font-weight: 700;
+    }
+    .contact-links a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+    .contact-links a:hover {
+      color: #1c5e90;
+      text-decoration: underline;
+    }
+    .fb-float {
+      position: fixed;
+      right: 38px;
+      bottom: 38px;
+      z-index: 200;
+    }
+    .fb-float a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1877f3, #43a6ff 80%);
+      border-radius: 50%;
+      width: 54px;
+      height: 54px;
+      box-shadow: 0 2px 14px rgba(24,119,242,0.27);
+      color: #fff;
+      font-size: 2.2rem;
+      text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      border: 3px solid #fff;
+    }
+    .fb-float a:hover {
+      background: linear-gradient(135deg,#1155a4 10%,#43a6ff 90%);
+      box-shadow: 0 8px 30px rgba(24,119,242,0.19);
+      transform: scale(1.11);
+    }
+    .footer-section {
+      text-align: center;
+      padding: 28px 8px 12px 8px;
+      font-size: 0.98rem;
+      color: #fff;
+      background: linear-gradient(135deg, #1c5e90, #175481 85%);
+      border-top-left-radius: 22px;
+      border-top-right-radius: 22px;
+      margin-top: 64px;
+      box-shadow: 0 -4px 22px rgba(0,0,0,0.10);
+      letter-spacing: 0.03em;
+    }
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 8px;
+        height: auto;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+      }
+      .logo img {
+        height: 40px;
+        margin-bottom: 8px;
+      }
+      .nav-links {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        align-items: flex-start;
+        margin-top: 10px;
+      }
+      .nav-links a {
+        font-size: 1rem;
+        padding: 10px 20px;
+        width: 100%;
+        display: block;
+      }
+      .contact-main {
+        margin: 18px 4px;
+        padding: 18px 8px;
+        border-radius: 12px;
+      }
+      .contact-main h1 {
+        font-size: 1.18rem;
+      }
+      .contact-info {
+        font-size: 0.97rem;
+      }
+      .contact-list {
+        font-size: 1rem;
+      }
+      .fb-float {
+        right: 16px;
+        bottom: 16px;
+      }
+      .fb-float a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
+      }
+      .footer-section {
+        padding: 18px 4px 8px 4px;
+        font-size: 0.87rem;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="website logo.jpg" alt="JP Professional Coatings Logo"></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+  </nav>
+  <main>
+    <div class="contact-main" data-aos="fade-up" data-aos-duration="1100">
+      <h1>Contact Us</h1>
+      <div class="contact-info">
+        We'd love to hear from you! Reach out for a free quote or any questions.
+      </div>
+      <ul class="contact-list">
+        <li><strong>Phone:</strong> <span class="contact-links"><a href="tel:2503157585">250-315-7585</a></span></li>
+        <li><strong>Email:</strong> <span class="contact-links"><a href="mailto:jamie9694@gmail.com">jamie9694@gmail.com</a></span></li>
+      </ul>
+      <div class="contact-info">
+        Or message us on <a class="contact-links" href="https://www.facebook.com/profile.php?id=100090187165666" target="_blank" rel="noopener">Facebook!</a>
+      </div>
+    </div>
+    <div class="fb-float">
+      <a href="https://www.facebook.com/profile.php?id=100090187165666" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </div>
+  </main>
+  <footer class="footer-section">
+    © 2025 J.P Professional Coatings. All Rights Reserved.
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
