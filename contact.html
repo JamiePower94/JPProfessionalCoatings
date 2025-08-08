@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- …meta, fonts, AOS… -->
+  <style>
+    /* …existing styles including .navbar… */
+
+    .navbar {
+      /* existing… */
+      transition: box-shadow 0.2s ease-out;
+    }
+    .navbar.scrolled {
+      box-shadow: 0 12px 40px rgba(23,84,129,0.35) !important;
+    }
+
+    /* sheen on contact buttons */
+    .glossy-button, button {
+      position: relative; overflow: hidden;
+    }
+    .glossy-button::before, button::before {
+      content:""; position:absolute; top:-120%; left:-50%; width:200%; height:200%;
+      background:linear-gradient(60deg,transparent 40%,rgba(255,255,255,0.25) 50%,transparent 60%);
+      transform:translateX(0) rotate(45deg); transition:transform 0.6s ease-out; pointer-events:none;
+    }
+    .glossy-button:active::before, button:active::before {
+      transform:translateX(200%) rotate(45deg); transition-duration:0.4s;
+    }
+
+    /* …rest of your contact styles… */
+  </style>
+</head>
+<body>
+  <nav class="navbar">…</nav>
+
+  <!-- contact content… -->
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script> AOS.init(); </script>
+  <script>
+    (function(){
+      const nav = document.querySelector('.navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 30) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+      });
+    })();
+  </script>
+</body>
+</html>
